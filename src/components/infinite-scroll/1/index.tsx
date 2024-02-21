@@ -8,7 +8,6 @@ const InfiniteScroll = () => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [itemLists, setItemLists] = useState([1, 2, 3, 4, 5]);
   const [ref, inView] = useInView();
-  console.log('inView', inView);
 
   const getMoreItem = async () => {
     setIsLoaded(true);
@@ -19,7 +18,6 @@ const InfiniteScroll = () => {
 
   useEffect(() => {
     if (inView) {
-      console.log(inView, '무한스크롤요청');
       getMoreItem();
     }
   }, [inView]);

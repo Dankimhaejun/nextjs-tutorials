@@ -19,11 +19,9 @@ export const todoListFilterState = atom({
 export const filteredTodoListState = selector({
   key: 'filteredTodoListState',
   get: ({get}) => {
-    console.log('todoListFilterState', todoListFilterState);
     const filter = get(todoListFilterState);
     const list = get(todoListState);
-    console.log('list', list);
-    console.log('filter', filter);
+
     switch (filter) {
       case 'ALL':
         return list;

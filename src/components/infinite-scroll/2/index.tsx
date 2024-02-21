@@ -7,10 +7,8 @@ import Loader from '../Loader';
 const InfiniteScroll = () => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [itemLists, setItemLists] = useState([1, 2, 3, 4, 5]);
-  console.log('itemLists', itemLists);
   const getMoreItem = async () => {
     setIsLoaded(true);
-    console.log('"hello"', 'hello');
     await new Promise((resolve) => setTimeout(resolve, 1500));
     setItemLists((prev) => [...prev, prev.length > 0 ? prev[prev.length - 1] + 1 : 1]);
     setIsLoaded(false);
