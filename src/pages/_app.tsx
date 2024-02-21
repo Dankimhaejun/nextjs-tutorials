@@ -3,6 +3,7 @@ import '@/styles/globals.css';
 import {theme} from '@/styles/theme';
 import type {AppProps} from 'next/app';
 import Head from 'next/head';
+import {RecoilRoot} from 'recoil';
 import {ThemeProvider} from 'styled-components';
 
 export default function App({Component, pageProps}: AppProps) {
@@ -14,7 +15,9 @@ export default function App({Component, pageProps}: AppProps) {
       </Head>
       <GlobalStyle />
       <ThemeProvider theme={theme}>
-        <Component {...pageProps} />
+        <RecoilRoot>
+          <Component {...pageProps} />
+        </RecoilRoot>
       </ThemeProvider>
     </>
   );
