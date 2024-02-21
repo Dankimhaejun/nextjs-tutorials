@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import Item from '../Item';
 import Loader from '../Loader';
 
-export default function InfiniteScroll() {
+const InfiniteScroll = () => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [itemLists, setItemLists] = useState([1, 2, 3, 4, 5]);
   const [ref, inView] = useInView();
@@ -32,7 +32,9 @@ export default function InfiniteScroll() {
       <StyledTargetElement ref={ref}>{isLoaded && <Loader />}</StyledTargetElement>
     </StyledInfiniteScrollWrap>
   );
-}
+};
+
+export default InfiniteScroll;
 
 const StyledInfiniteScrollWrap = styled.div`
   width: 100%;

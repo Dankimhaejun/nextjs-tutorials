@@ -1,5 +1,4 @@
 import {todoListState} from '@/states/todo';
-import {NextPage} from 'next';
 import {useState} from 'react';
 import {useSetRecoilState} from 'recoil';
 
@@ -8,7 +7,7 @@ function getId() {
   return id++;
 }
 
-const TodoItemCreator: NextPage = () => {
+const TodoItemCreator = () => {
   const [inputValue, setInputValue] = useState('');
   const setTodoList = useSetRecoilState(todoListState);
 

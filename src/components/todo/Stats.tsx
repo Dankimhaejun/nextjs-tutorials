@@ -1,8 +1,7 @@
 import {todoListStatsState} from '@/states/todo';
-import {NextPage} from 'next';
 import {useRecoilValue} from 'recoil';
 
-const TodoStats: NextPage = () => {
+const TodoStats = () => {
   const {totalNum, totalCompletedNum, totalUncompletedNum, percentCompleted} =
     useRecoilValue(todoListStatsState);
 

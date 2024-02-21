@@ -1,5 +1,5 @@
 import {Todo, todoListState} from '@/states/todo';
-import {NextPage} from 'next';
+import {memo} from 'react';
 import {useRecoilState} from 'recoil';
 
 interface TodoItemProps {
@@ -14,7 +14,7 @@ const removeItemAtIndex = (arr: Todo[], index: number) => {
   return [...arr.slice(0, index), ...arr.slice(index + 1)];
 };
 
-const TodoItem: NextPage<TodoItemProps> = ({item}: TodoItemProps) => {
+const TodoItem = ({item}: TodoItemProps) => {
   const [todoList, setTodoList] = useRecoilState(todoListState);
   const index = todoList.findIndex((listItem) => listItem === item);
 
@@ -42,4 +42,4 @@ const TodoItem: NextPage<TodoItemProps> = ({item}: TodoItemProps) => {
   );
 };
 
-export default TodoItem;
+export default memo(TodoItem);

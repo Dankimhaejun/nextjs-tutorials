@@ -5,7 +5,7 @@ import TodoItem from './Item';
 import TodoStats from './Stats';
 import TodoFilters from './Filters';
 
-export default function Todo() {
+const Todo = () => {
   const todoList = useRecoilValue(filteredTodoListState);
 
   return (
@@ -19,4 +19,6 @@ export default function Todo() {
       ))}
     </>
   );
-}
+};
+
+export default Todo;

@@ -1,8 +1,7 @@
 import {todoListFilterState} from '@/states/todo';
-import {NextPage} from 'next';
 import {useRecoilState} from 'recoil';
 
-const TodoFilters: NextPage = () => {
+const TodoFilters = () => {
   const [filter, setFilter] = useRecoilState(todoListFilterState);
 
   const updateFilter = (e: React.ChangeEvent<HTMLSelectElement>) => {
