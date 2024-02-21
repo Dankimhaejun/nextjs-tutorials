@@ -6,6 +6,14 @@ import Head from 'next/head';
 import {RecoilRoot} from 'recoil';
 import {ThemeProvider} from 'styled-components';
 
+import {Roboto} from 'next/font/google';
+
+const roboto = Roboto({
+  weight: ['400', '700'],
+  style: ['normal', 'italic'],
+  subsets: ['latin'],
+});
+
 export default function App({Component, pageProps}: AppProps) {
   return (
     <>
@@ -13,12 +21,14 @@ export default function App({Component, pageProps}: AppProps) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>boilerplate</title>
       </Head>
-      <GlobalStyle />
-      <ThemeProvider theme={theme}>
-        <RecoilRoot>
-          <Component {...pageProps} />
-        </RecoilRoot>
-      </ThemeProvider>
+      <main className={roboto.className}>
+        <GlobalStyle />
+        <ThemeProvider theme={theme}>
+          <RecoilRoot>
+            <Component {...pageProps} />
+          </RecoilRoot>
+        </ThemeProvider>
+      </main>
     </>
   );
 }
