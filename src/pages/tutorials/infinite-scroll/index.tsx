@@ -1,8 +1,7 @@
-import InfiniteScroll from '@/components/tutorials/infinite-scroll';
 import {NextPage} from 'next';
 
 const Page: NextPage = () => {
-  return <InfiniteScroll />;
+  return <>Infinite Scroll</>;
 };
 
 export default Page;
