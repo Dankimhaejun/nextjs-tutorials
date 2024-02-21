@@ -9,5 +9,8 @@ export const GlobalStyle = createGlobalStyle`
 
   body {
     background-color: #f2f5f7;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
   }
 `;
