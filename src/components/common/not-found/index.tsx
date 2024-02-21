@@ -1,15 +1,11 @@
-import styled from 'styled-components';
+import Link from 'next/link';
 
 export default function NotFound() {
-  return <NotFoundWrap>Not Found Component</NotFoundWrap>;
+  return (
+    <div>
+      <h2>Not Found</h2>
+      <p>Could not find requested resource</p>
+      <Link href="/">Return Home</Link>
+    </div>
+  );
 }
-
-const NotFoundWrap = styled.div`
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
-  align-items: center;
-`;
