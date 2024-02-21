@@ -1,8 +1,12 @@
 import NotFound from '@/components/common/not-found';
+import {NextPage} from 'next';
 import dynamic from 'next/dynamic';
 
-export default function Page(props: {id: string}) {
-  console.log('props', props);
+interface PageProps {
+  id: string;
+}
+
+const Page: NextPage<PageProps> = (props: PageProps) => {
   const InfiniteScroll = dynamic(async () => {
     try {
       const Dynamic = await import(`@/components/tutorials/infinite-scroll/${props.id}`);
@@ -11,11 +15,13 @@ export default function Page(props: {id: string}) {
       return NotFound;
     }
   });
-  console.log('InfiniteScroll', InfiniteScroll);
-  return <InfiniteScroll />;
-}
 
-export const getServerSideProps = ({params}: {params: {id: string}}) => {
+  return <InfiniteScroll />;
+};
+
+export default Page;
+
+export const getServerSideProps = ({params}: {params: PageProps}) => {
   const id = params.id;
   return {
     props: {id},
