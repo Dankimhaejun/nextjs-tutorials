@@ -1,4 +1,4 @@
-import NotFound from '@/components/common/not-found';
+import NotFound from '@/components/common/NotFound';
 import {NextPage} from 'next';
 import dynamic from 'next/dynamic';
 
