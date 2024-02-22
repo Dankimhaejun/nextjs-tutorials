@@ -7,15 +7,9 @@ interface PageProps {
 }
 
 const Page: NextPage<PageProps> = (props: PageProps) => {
-  const InfiniteScroll = dynamic(async () => {
-    try {
-      const Dynamic = await import(`@/components/infinite-scroll/${props.id}`);
-      return Dynamic;
-    } catch {
-      return NotFound;
-    }
-  });
-
+  const InfiniteScroll = dynamic(() =>
+    import(`@/components/infinite-scroll/${props.id}`).catch(() => NotFound)
+  );
   return <InfiniteScroll />;
 };
 
