@@ -1,11 +1,13 @@
 import Document, {Html, Head, Main, NextScript, DocumentContext} from 'next/document';
 import {ServerStyleSheet} from 'styled-components';
 
-const themeInitializerScript = `
-      (function () {
-        document.body.dataset.theme = window.localStorage.getItem("theme") || (window.matchMedia?.('(prefers-color-scheme: dark)').matches ? "dark" : "light");
-      })();
-  `;
+const initializeThemeScript = `
+    function getThemeMode() {
+        const theme = window.localStorage.getItem('theme')
+        return theme ? theme : 'dark'
+    }
+    document.body.dataset.theme = getThemeMode()
+`;
 
 class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
@@ -37,7 +39,7 @@ class MyDocument extends Document {
       <Html>
         <Head></Head>
         <body>
-          <script dangerouslySetInnerHTML={{__html: themeInitializerScript}} />
+          <script dangerouslySetInnerHTML={{__html: initializeThemeScript}} />
           <Main />
           <NextScript />
         </body>
